@@ -81,18 +81,64 @@ for (let i = 0; i < carsBenzina.length; i++) {
     <div class ="col-3">
     <div class="card " >
     <div class="card-body">
-    <h5 class="card-title">Auto</h5>
-    <h6 class="card-subtitle mb-2 text-muted">produttore:${carsBenzina[i].make}</h6>
-    <p class="card-text">modello:${carsBenzina[i].model}</p>
-    <pclass="card-text">carburante:${carsBenzina[i].fuel}</p>
+    <h5 class="card-title text-center">Auto</h5>
+    <h6 class="card-subtitle text-center mb-2 text-muted">${carsBenzina[i].make}</h6>
+    <p class="card-text text-center">${carsBenzina[i].model}</p>
+    <p class="card-text text-center">${carsBenzina[i].fuel}</p>
     
   </div></div></div>
   `
+};
+for (let i = 0; i < carsDiesel.length; i++) {
+    document.getElementById("diesel").innerHTML += `
+    <div class ="col-3">
+    <div class="card " >
+    <div class="card-body">
+    <h5 class="card-title text-center">Auto</h5>
+    <h6 class="card-subtitle text-center mb-2 text-muted">${carsDiesel[i].make}</h6>
+    <p class="card-text text-center">${carsDiesel[i].model}</p>
+    <p class="card-text text-center">${carsDiesel[i].fuel}</p>
+    
+  </div></div></div>
+  `
+}
+for (let i = 0; i < otherCars.length; i++) {
+    document.getElementById("altri").innerHTML += `
+    <div class ="col-3">
+    <div class="card " >
+    <div class="card-body">
+    <h5 class="card-title text-center">Auto</h5>
+    <h6 class="card-subtitle text-center mb-2 text-muted">${otherCars[i].make}</h6>
+    <p class="card-text text-center">${otherCars[i].model}</p>
+    <p class="card-text text-center">${otherCars[i].fuel}</p>
+    
+  </div></div></div>
+  `
+}
+function addCar(event) {
+    event.preventDefault();
+
+    console.log("AGGIUNTO UNO macchina!");
+
+    let newMake = document.getElementById("make").value;
+    let newModel = document.getElementById("model").value;
+    let newFuel = document.getElementById("fuel").value;
 
 
+    
 
 
+    let newcar = {
+        make: newMake,
+        model: newModel,
+        fuel: newFuel,
+        
+    };
 
+   cars.push(newcar);
+
+    
+    
 
 }
 
