@@ -128,14 +128,23 @@ function addCar(event) {
     
 
 
-    let newcar = {
+    let newCar = {
         make: newMake,
         model: newModel,
         fuel: newFuel,
         
     };
 
-   cars.push(newcar);
+    if (newCar.fuel == "diesel") {
+        carsDiesel.push(newCar);
+    }
+    else if (newCar.fuel == "benzina") {
+        carsBenzina.push(newCar);
+    }
+    else {
+        otherCars.push(newCar)
+
+    }
 
     
     
