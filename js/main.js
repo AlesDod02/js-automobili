@@ -65,18 +65,22 @@ cars.forEach(function (car) {
 
     if (car.fuel == "diesel") {
         carsDiesel.push(car);
+        categoriaMacchine(carsDiesel,diesel);
     }
     else if (car.fuel == "benzina") {
         carsBenzina.push(car);
+        categoriaMacchine(carsBenzina,benzina);
     }
-    else {
-        otherCars.push(car)
+    else if{
+        otherCars.push(car);
+        categoriaMacchine(otherCars,altri);
 
     }
 
 
 });
-for (let i = 0; i < carsBenzina.length; i++) {
+
+/*for (let i = 0; i < carsBenzina.length; i++) {
     document.getElementById("benzina").innerHTML += `
     <div class ="col-3">
     <div class="card " >
@@ -102,6 +106,7 @@ for (let i = 0; i < carsDiesel.length; i++) {
   </div></div></div>
   `
 }
+
 for (let i = 0; i < otherCars.length; i++) {
     document.getElementById("altri").innerHTML += `
     <div class ="col-3">
@@ -114,7 +119,7 @@ for (let i = 0; i < otherCars.length; i++) {
     
   </div></div></div>
   `
-}
+}*/
 function addCar(event) {
     event.preventDefault();
 
@@ -146,7 +151,10 @@ function addCar(event) {
 
     }
 
-    
+
+    console.log(carsBenzina);
+    console.log(carsDiesel);
+    console.log(otherCars)
     
 
 }
@@ -156,3 +164,20 @@ function addCar(event) {
 console.log(carsBenzina);
 console.log(carsDiesel);
 console.log(otherCars)
+
+
+function categoriaMacchine (arrayType,esempio){
+    for (let i = 0; i < arrayType.length; i++) {
+        document.getElementById(esempio).innerHTML += `
+        <div class ="col-3">
+        <div class="card " >
+        <div class="card-body">
+        <h5 class="card-title text-center">Auto</h5>
+        <h6 class="card-subtitle text-center mb-2 text-muted">${arrayType[i].make}</h6>
+        <p class="card-text text-center">${arrayType[i].model}</p>
+        <p class="card-text text-center">${arrayType[i].fuel}</p>
+        
+      </div></div></div>
+      `
+    }
+}
