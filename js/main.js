@@ -149,20 +149,21 @@ function addCar(event) {
         if (newCar.fuel == "diesel") {
             carsDiesel.push(newCar);
 
-            categoriaMacchine(carsDiesel, "diesel");
+            macchinaAggiunta(newCar,"diesel");
 
         }
         else if (newCar.fuel == "benzina") {
-            carsBenzina.push(newCar);
+           macchinaAggiunta(newCar,"benzina");
 
 
-            categoriaMacchine(carsBenzina, "benzina");
+           
 
         }
         else {
             otherCars.push(newCar)
             
-            categoriaMacchine(otherCars, "altri");
+            macchinaAggiunta(newCar,"altri");
+
 
 
         }
@@ -199,3 +200,17 @@ function addCar(event) {
       `
         }
     }
+    function macchinaAggiunta(TheNewCar,ex)  {
+            document.getElementById(ex).innerHTML += `
+        <div class ="col-3">
+        <div class="card " >
+        <div class="card-body">
+        <h5 class="card-title text-center">Auto</h5>
+        <h6 class="card-subtitle text-center mb-2 text-muted">${TheNewCar.make}</h6>
+        <p class="card-text text-center">${TheNewCar.model}</p>
+        <p class="card-text text-center">${TheNewCar.fuel}</p>
+        
+      </div></div></div>
+      `
+        }
+    
