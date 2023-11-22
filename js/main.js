@@ -65,15 +65,15 @@ cars.forEach(function (car) {
 
     if (car.fuel == "diesel") {
         carsDiesel.push(car);
-        
+
     }
     else if (car.fuel == "benzina") {
         carsBenzina.push(car);
-        
+
     }
     else {
         otherCars.push(car);
-        
+
     }
 
 
@@ -81,9 +81,9 @@ cars.forEach(function (car) {
 
 
 });
-categoriaMacchine(carsDiesel,diesel);
-categoriaMacchine(carsBenzina,benzina);
-categoriaMacchine(otherCars, altri);
+categoriaMacchine(carsDiesel, "diesel");
+categoriaMacchine(carsBenzina, "benzina");
+categoriaMacchine(otherCars, "altri");
 
 /*for (let i = 0; i < carsBenzina.length; i++) {
     document.getElementById("benzina").innerHTML += `
@@ -144,39 +144,49 @@ function addCar(event) {
         fuel: newFuel,
 
     };
+    
 
-    if (newCar.fuel == "diesel") {
-        carsDiesel.push(newCar);
-        categoriaMacchine(carsDiesel, diesel);
+        if (newCar.fuel == "diesel") {
+            carsDiesel.push(newCar);
+
+            categoriaMacchine(carsDiesel, "diesel");
+
+        }
+        else if (newCar.fuel == "benzina") {
+            carsBenzina.push(newCar);
+
+
+            categoriaMacchine(carsBenzina, "benzina");
+
+        }
+        else {
+            otherCars.push(newCar)
+            
+            categoriaMacchine(otherCars, "altri");
+
+
+        }
+
+
+
+
+        console.log(carsBenzina);
+        console.log(carsDiesel);
+        console.log(otherCars)
+
+
     }
-    else if (newCar.fuel == "benzina") {
-        carsBenzina.push(newCar);
-        categoriaMacchine(carsBenzina, benzina);
-    }
-    else {
-        otherCars.push(newCar)
-        categoriaMacchine(otherCars, altri);
 
-    }
-
-
+    //document.getElementById("benzina").innerHTML= benzina
+    //document.getElementById("otherfuel").innerHTML= otherFuel
     console.log(carsBenzina);
     console.log(carsDiesel);
     console.log(otherCars)
 
 
-}
-
-//document.getElementById("benzina").innerHTML= benzina
-//document.getElementById("otherfuel").innerHTML= otherFuel
-console.log(carsBenzina);
-console.log(carsDiesel);
-console.log(otherCars)
-
-
-function categoriaMacchine(arrayType, esempio) {
-    for (let i = 0; i < arrayType.length; i++) {
-        document.getElementById(esempio).innerHTML += `
+    function categoriaMacchine(arrayType, esempio) {
+        for (let i = 0; i < arrayType.length; i++) {
+            document.getElementById(esempio).innerHTML += `
         <div class ="col-3">
         <div class="card " >
         <div class="card-body">
@@ -187,5 +197,5 @@ function categoriaMacchine(arrayType, esempio) {
         
       </div></div></div>
       `
+        }
     }
-}
