@@ -65,20 +65,25 @@ cars.forEach(function (car) {
 
     if (car.fuel == "diesel") {
         carsDiesel.push(car);
-        categoriaMacchine(carsDiesel,diesel);
+        
     }
     else if (car.fuel == "benzina") {
         carsBenzina.push(car);
-        categoriaMacchine(carsBenzina,benzina);
+        
     }
-    else if{
+    else {
         otherCars.push(car);
-        categoriaMacchine(otherCars,altri);
-
+        
     }
+
+
+
 
 
 });
+categoriaMacchine(carsDiesel,diesel);
+categoriaMacchine(carsBenzina,benzina);
+categoriaMacchine(otherCars, altri);
 
 /*for (let i = 0; i < carsBenzina.length; i++) {
     document.getElementById("benzina").innerHTML += `
@@ -130,24 +135,27 @@ function addCar(event) {
     let newFuel = document.getElementById("fuel").value;
 
 
-    
+
 
 
     let newCar = {
         make: newMake,
         model: newModel,
         fuel: newFuel,
-        
+
     };
 
     if (newCar.fuel == "diesel") {
         carsDiesel.push(newCar);
+        categoriaMacchine(carsDiesel, diesel);
     }
     else if (newCar.fuel == "benzina") {
         carsBenzina.push(newCar);
+        categoriaMacchine(carsBenzina, benzina);
     }
     else {
         otherCars.push(newCar)
+        categoriaMacchine(otherCars, altri);
 
     }
 
@@ -155,7 +163,7 @@ function addCar(event) {
     console.log(carsBenzina);
     console.log(carsDiesel);
     console.log(otherCars)
-    
+
 
 }
 
@@ -166,7 +174,7 @@ console.log(carsDiesel);
 console.log(otherCars)
 
 
-function categoriaMacchine (arrayType,esempio){
+function categoriaMacchine(arrayType, esempio) {
     for (let i = 0; i < arrayType.length; i++) {
         document.getElementById(esempio).innerHTML += `
         <div class ="col-3">
